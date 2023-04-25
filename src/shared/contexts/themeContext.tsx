@@ -17,11 +17,10 @@ export const useAppThemeContext = () => {
 interface IAppThemeProviderProps {
   children: React.ReactNode
 }
-
 export const AppThemeProvider: React.FC<IAppThemeProviderProps> = ({ children }) => {
   const [themeName, setThemeName] = useState<'light' | 'dark'>('light');
   const toggleTheme = useCallback(() => {
-  setThemeName(oldThemeName => oldThemeName === 'light' ? 'dark' : 'light');
+    setThemeName(oldThemeName => oldThemeName === 'light' ? 'dark' : 'light');
   }, []);
   const theme = useMemo(() => {
     if (themeName === 'light') return LightTheme;
